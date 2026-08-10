@@ -12,7 +12,12 @@ export default function StoryMarquee( { stories }: { stories: StoryProps[] } ) {
         <div className="marquee-track">
           {/* rendered twice back-to-back so the loop resets seamlessly */}
           {[...stories, ...stories].map((story, i) => (
-            <TravelCard key={`${story.title}-${i}`} {...story} />
+            story.image && story.image.length > 0 && (
+              <TravelCard
+                  key={`${story.title}-${i}`}
+                  {...story}
+              />
+            )
           ))}
         </div>
       </div>

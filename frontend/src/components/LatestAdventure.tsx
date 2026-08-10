@@ -1,5 +1,6 @@
 import { type StoryProps } from '../data/StoryProps';
 import React, { useMemo } from 'react';
+import { Link } from "react-router-dom";
 
 function getLatestItem(data: StoryProps[]): StoryProps | null {
   if (data.length === 0) return null;
@@ -31,7 +32,7 @@ export default function LatestAdventure( { stories }: { stories: StoryProps[] } 
       <h2>{latestItem.title}</h2>
       <p>{latestItem.description}</p>
       <p className="date">{formattedDate}</p>
-      <a href="#">Read More</a>
+      <Link to="/traveling">Read More</Link>
       </div>
     )
 }

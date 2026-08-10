@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './App.css'
 import Headder from './components/Headder'
-import LogIn from "./components/LogIn";
+
 
 
 import Home from './pages/Home'
@@ -13,6 +13,8 @@ import Traveling from './pages/Traveling'
 import { useEffect, useState } from "react";
 
 import { getTravels } from "./api/travelApi";
+import { getAuthorSession } from "./data/constants";
+
 
 
 
@@ -22,6 +24,20 @@ import { getTravels } from "./api/travelApi";
 
 function App() {
   const [travels, setTravels] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isAuthor, setIsAuthor] = useState<boolean | null>(() => {
+    const userType = localStorage.getItem("userType");
+
+    if (userType === "author" && getAuthorSession()) {
+        return true;
+    }
+
+    if (userType === "visitor") {
+        return false;
+    }
+
+    return null;
+  });
 
     useEffect(() => {
         getTravels()
@@ -30,8 +46,13 @@ function App() {
             })
             .catch(error => {
                 console.error(error);
-            });
+            }).finally(() => {
+                setLoading(false);
+              });
     }, []);
+    if (loading) {
+      return <div className="loading">Loading...</div>;
+    }
 
   return (
     <>
@@ -39,12 +60,12 @@ function App() {
 
 
       <Headder />
-      <LogIn />
 
 
       <Routes>
-        <Route path="/" element={<Home travels={travels}/>} />
-        <Route path="/traveling" element={<Traveling travels={travels}/>} />
+        
+        <Route path="/" element={<Home travels={travels} isAuthor={isAuthor} setIsAuthor={setIsAuthor}/>} />
+        <Route path="/traveling" element={<Traveling travels={travels} isAuthor={isAuthor}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contacts />} />
       </Routes>

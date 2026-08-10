@@ -1,14 +1,15 @@
 import { useState } from "react";
 import '../styles/LogIn.css'
-import { AUTHOR } from "../data/constants";
 type FormData = {
     username: string,
     password: string
 }
+type LogInProps = {
+    setIsAuthor: React.Dispatch<React.SetStateAction<boolean | null>>;
+};
 
 
-
-export default function LogIn(){
+export default function LogIn({ setIsAuthor }: LogInProps){
     const [author, setAuthor] = useState(false);
     const [logIn, setLogIn] = useState(true);
 
@@ -24,7 +25,6 @@ export default function LogIn(){
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
     const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
@@ -42,7 +42,16 @@ export default function LogIn(){
         console.log(data);
 
         setStatus("loggedIn");
-        AUTHOR.isAuthenticated = true;
+        const expiresAt = Date.now() + 1000 * 60 * 60;
+        localStorage.setItem(
+            "authorSession",
+            JSON.stringify({
+                isAuthenticated: true,
+                expiresAt
+            })
+        );
+        localStorage.setItem("userType", "author");
+        setIsAuthor(true);
         setFormData({ username: "", password: "" });
         } catch (err) {
             console.error(err);
@@ -59,7 +68,7 @@ export default function LogIn(){
             <h3>Are you an Author of this blog?</h3>
             <div style={{display: "flex", justifyContent: "center", gap: 10}}>
             <button onClick={() => setAuthor(!author)}>Yes</button>
-            <button onClick={() => setLogIn(!logIn)}>No</button>
+            <button onClick={() =>{localStorage.setItem("userType", "visitor"); setIsAuthor(false); setLogIn(!logIn); }}>No</button>
             </div>
             </div>
 
@@ -95,6 +104,7 @@ export default function LogIn(){
                         <button type="submit" disabled={status === "loading"}>
                             {status === "loading" ? "..." : "Log In"}
                         </button>
+                        <button onClick={() =>{localStorage.setItem("userType", "visitor"); setIsAuthor(false); setLogIn(!logIn)}}>Close</button>
                     </form>
                 </div>
                 <div style={{justifyContent: "center", display: status === "loggedIn" ? "flex" : "none" } }>

@@ -25,10 +25,12 @@
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 25px;
 }
 .author-login.active{
     display: flex;
+    justify-content: center;
 }
 .login-question{
     display: flex;

@@ -5,6 +5,7 @@ interface UploadStoriesProps {
     storyToEdit?: StoryProps | null;
     onClose: () => void;
     onUpdated: (updatedStory: StoryProps) => void;
+    onCreated: (story: StoryProps) => void;
 }
 
 export default function UploadStories({storyToEdit, onClose, onUpdated}: UploadStoriesProps){
@@ -51,26 +52,29 @@ export default function UploadStories({storyToEdit, onClose, onUpdated}: UploadS
             method: storyToEdit ? "PATCH" : "POST",
             body: formData
         });
-        const responseText = await response.text();
+
         const data = await response.json();
 
         console.log("Status:", response.status);
-        console.log("Backend response:", responseText);
 
         if (!response.ok) {
-            throw new Error(responseText || "Failed to send");
+            throw new Error(data.error || data.message || "Failed to send");
         }
+        
+
+        setStatus("sent");
         if (storyToEdit) {
             onUpdated(data.updatedTravel);
         }
         onClose();
-
-        setStatus("sent");
         setStoryData({ title: '', country: '', date: '',description: '' });
+        
         } catch (err) {
             console.error(err);
             setStatus("error");
         }
+        
+        
     };
     return(
         <div className="upload-story-form">
@@ -124,6 +128,7 @@ export default function UploadStories({storyToEdit, onClose, onUpdated}: UploadS
                     required
                 />
             </div>
+            
             <div className="form-group">
                 <label htmlFor="image">Upload Image</label>
                 <input

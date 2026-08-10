@@ -82,8 +82,11 @@ router.get('/:travelId', (req, res, next) => {
     })
 });
 
-router.patch('/:travelId', upload.array("images", 10), async(req, res, next) => {
+router.patch('/:travelId', upload.array("image", 10), async(req, res, next) => {
+    console.log("PATCH ROUTE REACHED");
     try {
+            console.log("BODY:", req.body);
+            console.log("FILES:", req.files);
             const updateData = {
                 title: req.body.title,
                 country: req.body.country,
