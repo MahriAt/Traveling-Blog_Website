@@ -167,17 +167,3 @@
   cursor: pointer;
   width: 200px;
 }
-.save-message {
-    position: fixed;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    padding: 15px 30px;
-    background: white;
-    border-radius: 10px;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-
-    z-index: 2000;
-}

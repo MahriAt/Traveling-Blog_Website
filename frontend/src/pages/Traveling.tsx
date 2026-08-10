@@ -29,14 +29,13 @@ function TravelingCard({
     });
     
         
-    const [activeStory, setActiveStory] = useState<string | null>(null);
+
     
     return (
         <>
         <div className="story-card" >
             <div className="StoryTitle" onClick={() => {
-            setShowMore(!showMore)
-            setActiveStory(stories.title)}}>
+            setShowMore(!showMore)}}>
             <h3>{stories.title}</h3>
             </div>
             <div className="story-card-edit-date">
@@ -55,9 +54,7 @@ function TravelingCard({
                <div className="travel-card-popOut-images">{stories.image.map((src, i) => {
                     return  <img src={`http://localhost:3000${src}`} key={i}/>
                 })}</div>
-                <button onClick={() => {setShowMore(!showMore)
-                    setActiveStory(null)
-                }}>Back</button>
+                <button onClick={() => {setShowMore(!showMore)}}>Back</button>
             </div>
         )}
 
