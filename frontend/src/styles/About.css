@@ -1,0 +1,35 @@
+.About {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 80%;
+    margin: 70px auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+.AboutName{
+    text-align: center;
+    color: aliceblue;
+}
+.AboutName h1{
+    text-transform: uppercase;
+
+}
+.AboutBackground{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.AboutBackground img{
+    width: 40%;
+    height: 100%;
+    border-radius: 15px;
+}
+.AboutAdventures img{
+    width: 40%;
+    border-radius: 15px;
+    display:inline-flex;
+    margin: 15px;
+}
+.AboutAdventures{
+    justify-content: center;
+}

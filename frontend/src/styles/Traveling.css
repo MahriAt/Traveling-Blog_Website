@@ -1,0 +1,169 @@
+.traveling-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    text-align: left;
+    
+}
+.StoryTitle{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+}
+.traveling-container h3{
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.story-card{
+    border-bottom: 2px solid #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.story-card-author-edits img{
+    width: 20px;
+}
+.story-card-author-edits button{
+    background: none;
+    border: none;
+    margin-top: 5px;
+}
+.story-card-edit-date{
+    text-align: right;
+    width: 30%;
+}
+
+.travel-card-popOut{
+   position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60%;
+    max-width: 900px;
+    min-height: 70%;
+    height: auto;
+    max-height: 90vh;
+
+    background: white;
+    border-radius: 16px;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        0 8px 20px rgba(0, 0, 0, 0.2);
+
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.travel-card-popOut img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.travel-card-popOut-images{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.travel-card-popOut h2{
+    color: black;
+    font-size: 36px;
+}
+.travel-card-popOut button{
+    width: 20%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #17777a;
+    position: relative;
+    left: 70%;
+}
+.travel-card-popOut p{
+    padding: 10px;
+}
+.upload button{
+    border-radius: 50%;
+    background: #17777a;
+    padding: 10px;
+    margin-left: 100%;
+
+}
+.upload img{
+    height: 45px;
+    
+}
+.upload-container img{
+    position: fixed;
+
+    top: 5%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
+    width: 25px;
+
+    background: none;
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        0 8px 20px rgba(0, 0, 0, 0.2);
+
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.upload-story-form{
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60%;
+    max-width: 900px;
+    height: auto;
+    max-height: 90vh;
+
+    background: white;
+    border-radius: 16px;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        0 8px 20px rgba(0, 0, 0, 0.2);
+
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+}
+.upload-form button{
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #17777a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  width: 200px;
+}

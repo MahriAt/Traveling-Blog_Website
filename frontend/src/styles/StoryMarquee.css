@@ -1,0 +1,96 @@
+.marquee-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 64px 0;
+  background: #171B21;
+}
+
+/* Edge fades so cards appear to enter/exit the frame */
+.marquee-fade-left,
+.marquee-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 96px;
+  z-index: 10;
+  pointer-events: none;
+}
+.marquee-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #171B21, transparent);
+}
+.marquee-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #171B21, transparent);
+}
+
+/* The viewport that clips the moving track */
+.marquee-wrap {
+  overflow: hidden;
+}
+
+/* The track: this is what actually moves. flex-direction row + nowrap
+   is what keeps cards side-by-side instead of stacking in a column. */
+.marquee-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Each card: fixed width + flex-shrink:0 is what gives each one its
+   own space, so they move as separate items instead of one block. */
+.marquee-card {
+  flex-shrink: 0;
+  width: 288px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #1E232B;
+}
+/*.marquee-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 25px rgba(240, 248, 255, 0.848);
+}*/
+
+.marquee-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.marquee-card-body {
+  padding: 16px;
+}
+
+.marquee-card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #F2EFE9;
+}
+
+.marquee-card-desc {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #9AA3AF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}

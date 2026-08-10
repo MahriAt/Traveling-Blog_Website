@@ -1,0 +1,46 @@
+.author-login{
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30%;
+    max-width: 400px;
+    height: 40%;
+    max-height: 40vh;
+
+    background: white;
+    border-radius: 16px;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        0 8px 20px rgba(0, 0, 0, 0.2);
+
+    
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.author-login.active{
+    display: flex;
+}
+.login-question{
+    display: flex;
+    flex-direction: column;
+}
+.login-question.deactive{
+    display: none;
+}
+.author-login button{
+    margin-top: 10%;
+    width: 25%;
+    height: 30px;;
+    border-radius: 10px;
+    background: #17777a;
+}

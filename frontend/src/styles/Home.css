@@ -1,0 +1,205 @@
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  background: url('../assets/hero.gif') no-repeat center center;
+  aspect-ratio: 16/9;
+  background-size: cover;
+}
+.headder {
+  display: flex;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  background: none;
+  position: absolute;
+  right: 5%;;
+}
+
+.navigationMenu {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+nav a.active{
+  color: orange;
+}
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family:'Times New Roman', Times, serif;
+  height: 100%;
+  margin: 0 auto;
+  padding: 50px;
+  color: #fff;
+  line-height: 1.5;
+}
+.hero-content h1 {
+  font-size: 96px;
+  margin-bottom: 20px;
+  font-family:'Times New Roman', Times, serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: left;
+  width: 30%;
+}
+
+.hero-content p {
+  width: 30%;
+  font-size: 18px;
+  text-align: right;
+  color: #fff;
+  position: relative;
+  top: 50%;
+}
+.travel-cards-container{
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  gap: 20px;
+}
+.travelCard{
+  border: 2px solid #000000;
+  border-radius: 10px;
+  width: 25%;
+  height: 200px;
+}
+.travelCard img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.QuoteAndAdventure{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 50px 0;
+  flex: 1;
+  position: relative;
+}
+.quote img{
+  height: auto;
+  width: 100%;
+  object-fit: fill;
+}
+.quote-text {
+  font-size: clamp(18px, 3vw, 36px);
+  font-style: italic;
+  font-family: 'Brush Script MT';
+  margin-bottom: 20px;
+  text-align: left;
+  line-height: 1.5;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%; 
+}
+.quote-author {
+  font-size: clamp(10px, 2vw, 25px);
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: right;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  margin-left: 50%;
+}
+.latest-adventure-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  margin-left: 10%;
+  flex: 1;
+  
+}
+.latest-adventure-container h1, .latest-adventure-container h2{
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1;
+}
+.latest-adventure-container p{
+  font-style: italic;
+  overflow: hidden;
+}
+.date{
+  margin-top: 10%;
+  text-align: right;
+}
+.globe-container{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  background: #171B21;
+  padding: 40px;
+  margin: auto;
+  width: 80%;
+}
+.globe-container-story{
+  margin-top: 20;
+  min-height: 32;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 22;
+  padding: 20;
+  color: #F2EFE9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 50%;
+  height: 480px;
+  border-left: 1px solid #fff;
+}
+
+@media (min-width: 400px) and (max-width: 800px) {
+  .headder a {
+    font-size: 16px;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero-content h1 {
+    font-size: 48px;
+    width: 80%;
+    text-align: center;
+  }
+  .hero-content p {
+    width: 60%;
+    font-size: 16px;  
+    top: 0;
+    text-align: center;
+  }
+  .QuoteAndAdventure{
+    flex-direction: column;
+  }
+.quote-text {
+  
+  font-size: 25px;
+}
+.quote-author {
+  font-size: 20px;
+}
+.globe-container{
+  flex-direction: column;
+}
+.globe-container-story{
+  border: none;
+  border-top: 1px solid #fff;
+}
+}
